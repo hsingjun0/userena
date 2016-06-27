@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>{% block title %}Userena{% endblock %}</title>
+  {% block meta %}{% endblock %}
+</head>
+<body id="{% block body_id %}{% endblock %}" class="{% block body_class %}{% endblock %}">
+  <div id="body">
+    {% block body %}
+      <div class="content_title">
+        {% block content_title %}{% endblock %}
+      </div>
+      <div class="content">
+        {% block content %}{% endblock %}
+      </div>
+    {% endblock %}
+    <div class="fileinput fileinput-new" data-provides="fileinput">
+        <span class="btn btn-default btn-file"><span>Choose file</span><input type="file" /></span>
+    </div>
+
+
+    <div class = "">
+    <table>
+    <tr>
+	<th>Job ID</th>
+        <th>Sample Name</th>
+        <th>Action</th>
+	<th>Status</th>
+    </tr>
+    {% for seq_t in seqObj %}
+    <tr>
+	<td>{{ seq_t.jobID}}</td>
+	<td>{{ seq_t.seqFile}}</td>
+	<td>{{ seq_t.seqAct}}</td>
+	<td>{{ seq_t.taskSta}}</td>
+    </tr>
+    </table>
+  </div>
+</body>
+</html>
